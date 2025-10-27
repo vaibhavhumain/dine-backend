@@ -12,7 +12,14 @@ const Restaurant = require("./models/Restaurant");
 dotenv.config();
 
 const app = express();
-app.use(cors());
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: "https://dinekro.netlify.app",
+    credentials: true, 
+  })
+);
 app.use(bodyParser.json());
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
